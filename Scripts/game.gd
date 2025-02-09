@@ -13,6 +13,8 @@ func _process(delta: float) -> void:
 
 func _zoom_out():
 	$GlobalCamera.make_current()
+	$ZoomOutHold.start()
 	
 func _zoom_in():
 	$Player/PlayerCamera.make_current()
+	$CameraSwapTimer.start()

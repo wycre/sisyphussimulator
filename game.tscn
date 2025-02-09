@@ -12,14 +12,25 @@ position = Vector2(148, -149)
 
 [node name="Player" parent="." instance=ExtResource("2_npsw2")]
 position = Vector2(244, 427)
+floor_constant_speed = true
+maxSpeed = 500.0
+gravityScale = 100.0
+terminalVelocity = 1000.0
+descendingGravityFactor = 3.0
+coyoteTime = 0.0
+jumpBuffering = 0.0
 
 [node name="GlobalCamera" type="Camera2D" parent="."]
 position = Vector2(5336, -2655)
 zoom = Vector2(0.1, 0.1)
 
 [node name="CameraSwapTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
 
 [node name="ZoomOutHold" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
 
 [connection signal="timeout" from="CameraSwapTimer" to="." method="_zoom_out"]
+[connection signal="timeout" from="ZoomOutHold" to="." method="_zoom_in"]
