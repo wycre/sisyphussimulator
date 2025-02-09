@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://can1bvsrbioeu"]
+
+[ext_resource type="Script" path="res://Scripts/UltimatePlatformerController.gd" id="1_j2vme"]
+[ext_resource type="Texture2D" uid="uid://5e2uy5ia1p3y" path="res://Textures/rock.png" id="1_w6lrs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q4p83"]
+radius = 63.0714
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mp20t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w6lrs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
+script = ExtResource("1_j2vme")
+PlayerSprite = NodePath("AnimatedSprite2D")
+PlayerCollider = NodePath("CollisionShape2D")
+maxSpeed = 400.0
+timeToReachMaxSpeed = 0.0
+timeToReachZeroSpeed = 0.0
+directionalSnap = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q4p83")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mp20t")
+
+[node name="Camera2D" type="Camera2D" parent="."]

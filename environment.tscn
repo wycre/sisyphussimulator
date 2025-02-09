@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://umoe407lu66j"]
+
+[ext_resource type="Texture2D" uid="uid://3cbuo1p0ct8p" path="res://Textures/Ground.png" id="1_8shnl"]
+[ext_resource type="Texture2D" uid="uid://57t5hdythdr6" path="res://Textures/hill.png" id="2_5rwbq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqvwo"]
+size = Vector2(3195, 256)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_47wri"]
+a = Vector2(8051, -5416)
+b = Vector2(177, 648)
+
+[node name="Envrionment" type="Node2D"]
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(533, 581)
+texture = ExtResource("1_8shnl")
+
+[node name="Ground2" type="Sprite2D" parent="."]
+position = Vector2(1599, 581)
+texture = ExtResource("1_8shnl")
+
+[node name="Ground3" type="Sprite2D" parent="."]
+position = Vector2(-533, 581)
+texture = ExtResource("1_8shnl")
+
+[node name="Hill" type="Sprite2D" parent="."]
+position = Vector2(5507, -2583)
+texture = ExtResource("2_5rwbq")
+
+[node name="PhysBody" type="StaticBody2D" parent="."]
+
+[node name="GroundCollider" type="CollisionShape2D" parent="PhysBody"]
+position = Vector2(534.5, 774)
+shape = SubResource("RectangleShape2D_nqvwo")
+
+[node name="HillCollider" type="CollisionShape2D" parent="PhysBody"]
+shape = SubResource("SegmentShape2D_47wri")
