@@ -73,7 +73,7 @@ func reset_summit():
 	
 	position = start_pos
 	$UI.visible = true
-	player_started = true
+	player_started = false
 	
 	# TODO Reset sprites to start
 	

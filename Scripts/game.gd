@@ -34,3 +34,4 @@ func _on_bottom_zone_body_entered(body: Node2D) -> void:
 	print("Returned")
 	$Player.reset_summit()
 	body.queue_free()
+	$CameraSwapTimer.start()

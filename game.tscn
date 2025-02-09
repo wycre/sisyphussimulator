@@ -18,7 +18,7 @@ position = Vector2(148, -149)
 
 [node name="Player" parent="." instance=ExtResource("4_gsvsl")]
 position = Vector2(306, 433)
-moveRate = 100.0
+moveRate = 10.0
 
 [node name="GlobalCamera" type="Camera2D" parent="."]
 position = Vector2(5336, -2655)
