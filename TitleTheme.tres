@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bkl1q4ou12wli"]
+
+[ext_resource type="FontFile" uid="uid://bxqqhsmtorfe6" path="res://Fonts/AtkinsonHyperlegible-Regular.ttf" id="1_484py"]
+
+[resource]
+default_font = ExtResource("1_484py")
+default_font_size = 50

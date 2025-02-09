@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0h2rixg4om0q"]
+[gd_scene load_steps=6 format=3 uid="uid://b0h2rixg4om0q"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_7l0fo"]
 [ext_resource type="PackedScene" uid="uid://umoe407lu66j" path="res://environment.tscn" id="1_jm7q0"]
-[ext_resource type="PackedScene" uid="uid://can1bvsrbioeu" path="res://player.tscn" id="2_npsw2"]
+[ext_resource type="PackedScene" uid="uid://hw2k4ryvsnnq" path="res://player.tscn" id="4_gsvsl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hiuh7"]
+size = Vector2(277.578, 311)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4i5l"]
+size = Vector2(314, 213)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7l0fo")
@@ -10,15 +16,9 @@ script = ExtResource("1_7l0fo")
 [node name="Envrionment" parent="." instance=ExtResource("1_jm7q0")]
 position = Vector2(148, -149)
 
-[node name="Player" parent="." instance=ExtResource("2_npsw2")]
-position = Vector2(244, 427)
-floor_constant_speed = true
-maxSpeed = 500.0
-gravityScale = 100.0
-terminalVelocity = 1000.0
-descendingGravityFactor = 3.0
-coyoteTime = 0.0
-jumpBuffering = 0.0
+[node name="Player" parent="." instance=ExtResource("4_gsvsl")]
+position = Vector2(306, 433)
+moveRate = 100.0
 
 [node name="GlobalCamera" type="Camera2D" parent="."]
 position = Vector2(5336, -2655)
@@ -32,5 +32,22 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
+[node name="SummitZone" type="Area2D" parent="."]
+
+[node name="SummitCollider" type="CollisionShape2D" parent="SummitZone"]
+position = Vector2(7993.97, -5607.98)
+rotation = -0.654498
+shape = SubResource("RectangleShape2D_hiuh7")
+
+[node name="BottomZone" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="BottomCollider" type="CollisionShape2D" parent="BottomZone"]
+position = Vector2(79, 385.5)
+shape = SubResource("RectangleShape2D_o4i5l")
+
 [connection signal="timeout" from="CameraSwapTimer" to="." method="_zoom_out"]
 [connection signal="timeout" from="ZoomOutHold" to="." method="_zoom_in"]
+[connection signal="body_entered" from="SummitZone" to="." method="_on_summit_zone_body_entered"]
+[connection signal="body_entered" from="BottomZone" to="." method="_on_bottom_zone_body_entered"]
