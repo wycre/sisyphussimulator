@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://v61xnn1o5eye"]
+
+[ext_resource type="FontFile" uid="uid://cg5y280rhjycq" path="res://Fonts/AtkinsonHyperlegible-Bold.ttf" id="1_mx82v"]
+
+[resource]
+default_font = ExtResource("1_mx82v")
+default_font_size = 170
