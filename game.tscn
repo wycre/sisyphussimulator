@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0h2rixg4om0q"]
+[gd_scene load_steps=8 format=3 uid="uid://b0h2rixg4om0q"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_7l0fo"]
 [ext_resource type="PackedScene" uid="uid://umoe407lu66j" path="res://environment.tscn" id="1_jm7q0"]
+[ext_resource type="Theme" uid="uid://bkl1q4ou12wli" path="res://TitleTheme.tres" id="4_7chga"]
 [ext_resource type="PackedScene" uid="uid://hw2k4ryvsnnq" path="res://player.tscn" id="4_gsvsl"]
+[ext_resource type="Theme" uid="uid://cex6w0v7trwvv" path="res://SubtitleTheme.tres" id="5_yd34b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hiuh7"]
 size = Vector2(277.578, 311)
@@ -18,7 +20,6 @@ position = Vector2(148, -149)
 
 [node name="Player" parent="." instance=ExtResource("4_gsvsl")]
 position = Vector2(306, 433)
-moveRate = 10.0
 
 [node name="GlobalCamera" type="Camera2D" parent="."]
 position = Vector2(5336, -2655)
@@ -46,6 +47,36 @@ collision_mask = 2
 [node name="BottomCollider" type="CollisionShape2D" parent="BottomZone"]
 position = Vector2(79, 385.5)
 shape = SubResource("RectangleShape2D_o4i5l")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 79.0
+offset_top = 178.0
+offset_right = 532.0
+offset_bottom = 318.0
+
+[node name="Title Label" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.0
+offset_right = 74.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("4_7chga")
+text = "Sisyphus Simulator"
+horizontal_alignment = 1
+
+[node name="Help Text" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 65.0
+offset_right = 359.0
+offset_bottom = 103.0
+theme = ExtResource("5_yd34b")
+text = "Press space to start"
 
 [connection signal="timeout" from="CameraSwapTimer" to="." method="_zoom_out"]
 [connection signal="timeout" from="ZoomOutHold" to="." method="_zoom_in"]

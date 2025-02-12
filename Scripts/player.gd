@@ -22,7 +22,6 @@ func _process(delta: float):
 		return
 	if Input.is_action_just_pressed("right") and position.y < GROUND:
 		if not player_started:
-			$UI.visible = false
 			player_started = true
 		_pushRock()
 
@@ -72,7 +71,6 @@ func reset_summit():
 	$PlayerCamera.make_current()
 	
 	position = start_pos
-	$UI.visible = true
 	player_started = false
 	
 	# TODO Reset sprites to start

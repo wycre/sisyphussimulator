@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://hw2k4ryvsnnq"]
+[gd_scene load_steps=7 format=3 uid="uid://hw2k4ryvsnnq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_oy3vb"]
 [ext_resource type="Texture2D" uid="uid://5e2uy5ia1p3y" path="res://Textures/rock.png" id="2_60gxv"]
 [ext_resource type="Shape2D" uid="uid://bigu7g3t5831a" path="res://RockShape.tres" id="2_yjbp1"]
 [ext_resource type="Theme" uid="uid://v61xnn1o5eye" path="res://GlobalLabelText.tres" id="3_kg461"]
 [ext_resource type="Texture2D" uid="uid://dbjq5pav0pvau" path="res://Textures/BoundingBox.png" id="4_eu10g"]
-[ext_resource type="Theme" uid="uid://bkl1q4ou12wli" path="res://TitleTheme.tres" id="6_autxm"]
-[ext_resource type="Theme" uid="uid://cex6w0v7trwvv" path="res://SubtitleTheme.tres" id="7_r3wbe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mp20t"]
 animations = [{
@@ -44,33 +42,3 @@ horizontal_alignment = 1
 [node name="BoundingBox" type="Sprite2D" parent="."]
 position = Vector2(1, 0)
 texture = ExtResource("4_eu10g")
-
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -227.0
-offset_top = -255.0
-offset_right = 226.0
-offset_bottom = -115.0
-
-[node name="Title Label" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -74.0
-offset_right = 74.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme = ExtResource("6_autxm")
-text = "Sisyphus Simulator"
-horizontal_alignment = 1
-
-[node name="Help Text" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 97.0
-offset_top = 65.0
-offset_right = 359.0
-offset_bottom = 103.0
-theme = ExtResource("7_r3wbe")
-text = "Press space to start"
