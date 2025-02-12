@@ -29,8 +29,16 @@ shape = ExtResource("2_yjbp1")
 sprite_frames = SubResource("SpriteFrames_mp20t")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
+position_smoothing_enabled = true
 
-[node name="Label" type="Label" parent="."]
+[node name="LocationIndicator" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="LocationIndicator"]
 offset_left = -527.0
 offset_top = -541.0
 offset_right = 526.0
@@ -39,6 +47,6 @@ theme = ExtResource("3_kg461")
 text = "You Are Here"
 horizontal_alignment = 1
 
-[node name="BoundingBox" type="Sprite2D" parent="."]
+[node name="BoundingBox" type="Sprite2D" parent="LocationIndicator"]
 position = Vector2(1, 0)
 texture = ExtResource("4_eu10g")

@@ -58,16 +58,13 @@ func handle_summit():
 	print("Summited")
 	summited = true;
 	$AnimatedSprite2D.visible = false;
-	$BoundingBox.visible = false;
-	$Label.visible = false;
+	$LocationIndicator.visible = false;
 	
 	# TODO Play return animation
 	
 func reset_summit():
 	summited = false;
 	$AnimatedSprite2D.visible = true;
-	$BoundingBox.visible = true;
-	$Label.visible = true;
 	$PlayerCamera.make_current()
 	
 	position = start_pos
