@@ -17,6 +17,8 @@ animations = [{
 [node name="RollingRock" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 2
+mass = 500.0
+gravity_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = ExtResource("1_qj5s1")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://hw2k4ryvsnnq"]
+[gd_scene load_steps=8 format=3 uid="uid://hw2k4ryvsnnq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_oy3vb"]
 [ext_resource type="Texture2D" uid="uid://5e2uy5ia1p3y" path="res://Textures/rock.png" id="2_60gxv"]
 [ext_resource type="Shape2D" uid="uid://bigu7g3t5831a" path="res://RockShape.tres" id="2_yjbp1"]
 [ext_resource type="Theme" uid="uid://v61xnn1o5eye" path="res://GlobalLabelText.tres" id="3_kg461"]
 [ext_resource type="Texture2D" uid="uid://dbjq5pav0pvau" path="res://Textures/BoundingBox.png" id="4_eu10g"]
+[ext_resource type="SpriteFrames" uid="uid://cb28hh2skkf0o" path="res://Animations/RockPusher.tres" id="6_y0gug"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mp20t"]
 animations = [{
@@ -29,6 +30,7 @@ shape = ExtResource("2_yjbp1")
 sprite_frames = SubResource("SpriteFrames_mp20t")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
+position = Vector2(-88, 7)
 position_smoothing_enabled = true
 
 [node name="LocationIndicator" type="Control" parent="."]
@@ -50,3 +52,9 @@ horizontal_alignment = 1
 [node name="BoundingBox" type="Sprite2D" parent="LocationIndicator"]
 position = Vector2(1, 0)
 texture = ExtResource("4_eu10g")
+
+[node name="RockPusherAnim" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-88, 7)
+scale = Vector2(0.18, 0.18)
+sprite_frames = ExtResource("6_y0gug")

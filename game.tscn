@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0h2rixg4om0q"]
+[gd_scene load_steps=9 format=3 uid="uid://b0h2rixg4om0q"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_7l0fo"]
 [ext_resource type="PackedScene" uid="uid://umoe407lu66j" path="res://environment.tscn" id="1_jm7q0"]
@@ -10,7 +10,11 @@
 size = Vector2(277.578, 311)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4i5l"]
-size = Vector2(314, 213)
+size = Vector2(402, 213)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nxwhy"]
+a = Vector2(238, 377)
+b = Vector2(238, 495)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7l0fo")
@@ -19,7 +23,8 @@ script = ExtResource("1_7l0fo")
 position = Vector2(148, -149)
 
 [node name="Player" parent="." instance=ExtResource("4_gsvsl")]
-position = Vector2(306, 433)
+position = Vector2(305, 433)
+moveRate = 100.0
 
 [node name="GlobalCamera" type="Camera2D" parent="."]
 position = Vector2(5336, -2655)
@@ -45,8 +50,13 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="BottomCollider" type="CollisionShape2D" parent="BottomZone"]
-position = Vector2(79, 385.5)
+position = Vector2(123, 385.5)
 shape = SubResource("RectangleShape2D_o4i5l")
+
+[node name="GameStartTrigger" type="Area2D" parent="."]
+
+[node name="GameStartCollider" type="CollisionShape2D" parent="GameStartTrigger"]
+shape = SubResource("SegmentShape2D_nxwhy")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -82,3 +92,4 @@ text = "Press space to start"
 [connection signal="timeout" from="ZoomOutHold" to="." method="_zoom_in"]
 [connection signal="body_entered" from="SummitZone" to="." method="_on_summit_zone_body_entered"]
 [connection signal="body_entered" from="BottomZone" to="." method="_on_bottom_zone_body_entered"]
+[connection signal="body_entered" from="GameStartTrigger" to="." method="_on_game_start_trigger_body_entered"]

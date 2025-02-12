@@ -45,3 +45,4 @@ shape = SubResource("SegmentShape2D_47wri")
 
 [node name="LeftBounds" type="CollisionShape2D" parent="PhysBody"]
 shape = SubResource("SegmentShape2D_gqo1e")
+disabled = true
